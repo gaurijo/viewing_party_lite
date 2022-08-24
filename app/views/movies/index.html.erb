@@ -1,0 +1,8 @@
+<h1> Movie Search Results </h1>
+
+<% @movies.each do |movie|%>
+<div id="movies-<%=movie.id%>">
+   <p> <h2><%= link_to movie.name, "movies/#{movie.id}" %></h2></p>
+    <% end %>
+    <br>
+</div>
