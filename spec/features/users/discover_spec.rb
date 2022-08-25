@@ -11,15 +11,17 @@ RSpec.describe "User Discover", type: :feature do
         
         expect(current_path).to eq("/users/#{@user1.id}/movies")
     end
-  end
 
-  #   it 'has text field to search key words then redirects to matching list' do
-  #       @user1 = User.create!(name: "Micheal Jordan", email: "user1@gmail.com")
+    it 'has text field to search key words then redirects to matching list', :vcr do
+        @user1 = User.create!(name: "Micheal Jordan", email: "user1@gmail.com")
 
-  #       visit "/users/#{@user1.id}/discover"
+        visit "/users/#{@user1.id}/discover"
+        response = JSON.parse(File.read('spec/fixtures/ddlj.json'), symbolize_names: true)
 
-  #       fill_in :movie_title, with: 'Shawshank Redemption'
-  #       click_on "Search"
-  #   end
-  # end
+        fill_in :movie_title, with: "Dilwale Dulhania Le Jayenge"
+        click_on "Search"
+
+        expect(current_path).to eq("/users/#{@user1.id}/movies")
+    end
+end
 

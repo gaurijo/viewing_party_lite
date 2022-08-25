@@ -5,4 +5,8 @@
         Movie.new(movie)
       end
     end
+
+    # def self.search_by_id(id)
+    #   movies = MovieService.search_by_id(id)
+    # end
   end

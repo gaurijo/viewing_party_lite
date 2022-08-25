@@ -5,10 +5,10 @@ RSpec.describe "Movie Index Page", :vcr do
 
         @user1 = User.create!(name: "Micheal Jordan", email: "user1@gmail.com")
 
-        # visit "/users/#{@user1.id}/discover"
-        visit "/users/#{@user1.id}/movies"
+        visit "/users/#{@user1.id}/discover"
+        # visit "/users/#{@user1.id}/movies"
 
-        # click_button "Discover Top Rated Movies"
+        click_button "Discover Top Rated Movies"
         
         expect(current_path).to eq("/users/#{@user1.id}/movies")
     end

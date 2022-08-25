@@ -8,6 +8,6 @@ RSpec.describe MovieService do
     expect(movies.count).to eq(40)
     expect(movies[0][:title]).to be_a(String)
     expect(movies[0][:vote_average]).to be_a(Float)
-    # expect(movies).to have_http_status(200)
+    # expect(movies.status).to have_http_status(200)
   end
 end
